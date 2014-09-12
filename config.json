@@ -1,0 +1,16 @@
+{
+	"files": [
+		"constructor.js",
+		"module.js",
+		"revealingModule.js",
+        "singleton.js",
+        "facade.js",
+        "factory.js",
+        "mixin.js",
+        "decorator.js",
+        "observer.js",
+        "mediator.js",
+        "command.js",
+        "memoization.js"
+	]
+}
