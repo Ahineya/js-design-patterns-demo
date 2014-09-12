@@ -1,0 +1,26 @@
+{
+  "name": "js-patterns",
+  "version": "0.0.1",
+  "authors": [
+    "Pavlo Evsegneev <Pavlo_Evsegneev@epam.com>"
+  ],
+  "description": "Javascript Design Patterns demo",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "ISC",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "highlight": "~7.0.1"
+  },
+  "devDependencies": {
+    "highlightjs": "~8.0.0"
+  }
+}
