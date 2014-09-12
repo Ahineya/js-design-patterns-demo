@@ -54,7 +54,13 @@ module.exports = function(grunt) {
 		        base: 'dist'
 		      }
 		    }
-		}
+		},
+		'gh-pages': {
+            options: {
+                base: 'dist/'
+            },
+            src: ['**/*']
+        },
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -62,9 +68,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-gh-pages');
 
 	grunt.registerTask('test', ['jshint']);
 	grunt.registerTask('build', ['jshint', 'clean', 'copy']);
 	grunt.registerTask('default', ['jshint', 'build', 'connect', 'watch']);
+	grunt.registerTask('deploy', ['build', 'gh-pages']);
 
 };
