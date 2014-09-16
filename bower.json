@@ -21,6 +21,7 @@
     "highlight": "~7.0.1"
   },
   "devDependencies": {
-    "highlightjs": "~8.0.0"
+    "highlightjs": "~8.0.0",
+    "domwork": "~0.1.1"
   }
 }
