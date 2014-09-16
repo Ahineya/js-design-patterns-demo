@@ -28,10 +28,10 @@
 
     Mixin.prototype = {
         showStrong: function () {
-            log('<strong>' + this.message + '</strong>');
+            $('strong').html( this.message ).appendTo( $('#log') ) ;
         },
         showItalic: function () {
-            log('<em>' + this.message + '</em>');
+            $('em').html( this.message ).appendTo( $('#log') ) ;
         }
     };
 
@@ -44,4 +44,4 @@
     assert(typeof m.showItalic === 'function', 'Type of function mixed in is \'function\'');
     assert(typeof m.showStrong === 'undefined', 'Type of not mixed function is \'undefined\'');
 
-})();
+})(); 
