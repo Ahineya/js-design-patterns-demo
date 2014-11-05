@@ -47,7 +47,7 @@
     };
 
     Subject.prototype.removeObserver = function (observer) {
-        this.observers.removeAt(this.observers.indexOf(observer), 0);
+        this.observers.removeAt(this.observers.indexOf(observer));
     };
 
     Subject.prototype.notify = function (context) {
