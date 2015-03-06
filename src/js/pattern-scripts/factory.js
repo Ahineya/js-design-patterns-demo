@@ -39,11 +39,24 @@
             ]
         }
     ];
+    
+  // minimal helpers to escape html
+    function escapeHtml(string) {
+        var entityMap = {
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': '&quot;',
+            "'": '&#39;'
+        };
+        return String(string).replace(/[&<>"'\/]/g, function (s) {
+            return entityMap[s];
+        });
+    }
 
 //Widget classes -------------------------------------------
 
     function CheckboxSettingWidget(data) {
-        var html = "<input type='checkbox' value='" + data.value + "'>" + data.text;
+        var html = escapeHtml("<input type='checkbox' value='" + data.value + "'>" + data.text);
 
         this.getLayout = function () {
             return html;
@@ -52,7 +65,7 @@
     }
 
     function InputSettingWidget(data) {
-        var html = data.text + ": <input type='text' value='" + (data.value || '') + "'>";
+        var html = escapeHtml(data.text + ": <input type='text' value='" + (data.value || '') + "'>");
 
         this.getLayout = function () {
             return html;
@@ -62,9 +75,9 @@
 
     function RadioSettingWidget(data) {
         var html = data.text + ":";
-        html += "<input type='radio' name='" + data.gender + "' value='" + data.options[0].value + "'>" + data.options[0].text;
-        html += "<input type='radio' name='" + data.gender + "' value='" + data.options[1].value + "'>" + data.options[1].text;
-        html += "<input type='radio' name='" + data.gender + "' value='" + data.options[2].value + "'>" + data.options[2].text;
+        html += escapeHtml("<input type='radio' name='" + data.gender + "' value='" + data.options[0].value + "'>" + data.options[0].text);
+        html += escapeHtml("<input type='radio' name='" + data.gender + "' value='" + data.options[1].value + "'>" + data.options[1].text);
+        html += escapeHtml("<input type='radio' name='" + data.gender + "' value='" + data.options[2].value + "'>" + data.options[2].text);
 
         this.getLayout = function () {
             return html;
@@ -108,10 +121,10 @@
 
     var widgetFactory = new WidgetFactory();
     for (var i = 0; i < data.length; i++) {
-        log('<hr>' + widgetFactory.build(data[i]).getLayout());
+        log(escapeHtml('<hr>') + widgetFactory.build(data[i]).getLayout());
     }
 
-    log('<hr>');
+    log(escapeHtml('<hr>'));
 
     var o = widgetFactory.build(data[0]);
     assert(o instanceof PlainTextSettingWidget, 'First object from factory is instance of PlainTextSettingWidget');
